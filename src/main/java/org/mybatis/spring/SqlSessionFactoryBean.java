@@ -84,6 +84,8 @@ import static org.springframework.util.StringUtils.tokenizeToStringArray;
  *
  * @see #setConfigLocation
  * @see #setDataSource
+ * @date 20200410
+ * 加载xml及build SqlSessionFactory对象
  */
 public class SqlSessionFactoryBean
     implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> {

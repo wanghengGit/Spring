@@ -87,6 +87,8 @@ import org.springframework.util.StringUtils;
  *
  * @see MapperFactoryBean
  * @see ClassPathMapperScanner
+ * @date 20200410
+ * 扫描Mapper接口路径，将 Mapper 偷梁换柱成 MapperFactoryBean
  */
 public class MapperScannerConfigurer
     implements BeanDefinitionRegistryPostProcessor, InitializingBean, ApplicationContextAware, BeanNameAware {

@@ -1,0 +1,21 @@
+本文解析了Mybatis与Spring是如何整合的，其中的关键对象包括：
+
+SqlSessionFactoryBuilder: 用于创建 SqlSessionFactory
+
+SqlSessionFactory： 用于创建 SqlSession
+
+SqlSession： Mybatis工作的最顶层API会话接口，所有访问数据库的操作都是通过SqlSession来的
+
+Configuration： 存放有所有的mybatis配置信息，包括mapper.xml、 mybatis-config.xml等
+
+XMLConfigBuilder： 解析 mybatis-config.xml 配置并存放到Configuration中
+
+XMLMapperBuilder： 解析 mapper.xml 配置并存放到Configuration中
+
+SqlSessionFactoryBean： mybatis整合Spring时的 生成 SqlSessionFactory 的FactoryBean
+
+MapperScannerConfigurer： mybatis整合Spring时的 实现方便加载Mapper接口，以及将 Mapper 偷梁换柱成 MapperFactoryBean
+
+MapperFactoryBean： 生成 Mapper 代理对象的FactoryBean
+
+SqlSessionTemplate： 内部维护有 SqlSession 的代理对象，解耦Mapper和SqlSession的关键对象

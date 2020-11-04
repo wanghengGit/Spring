@@ -85,7 +85,10 @@ import static org.springframework.util.StringUtils.tokenizeToStringArray;
  * @see #setConfigLocation
  * @see #setDataSource
  * @date 20200410
+ * @author kit
  * 加载xml及build SqlSessionFactory对象
+ * 实现了spring的两个接口，一个接口是初始化bean之后回调，另一个是spring提供的工厂bean接口
+ * 负责创建mybatis的SqlSessionFactory。并将*mapper.xml, dataSource注入到SqlSessionFactory中。
  */
 public class SqlSessionFactoryBean
     implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> {
@@ -481,6 +484,7 @@ public class SqlSessionFactoryBean
 
   /**
    * {@inheritDoc}
+   * 注入成功之后回调方法
    */
   @Override
   public void afterPropertiesSet() throws Exception {
@@ -504,9 +508,10 @@ public class SqlSessionFactoryBean
    *           if configuration is failed
    */
   protected SqlSessionFactory buildSqlSessionFactory() throws Exception {
-
+    // 省略了 SqlSessionFactoryBean 的属性（比如：ObjectFactory ）赋值到 Configuration 对象中的操作
+    //  1 Configuration : Mybatis的核心类之一，主要存放读取到的xml数据,包括mapper.xml
     final Configuration targetConfiguration;
-
+    //  2 创建  xmlConfigBuilder 对象 : 用于解析 mybatis-config.xml 数据
     XMLConfigBuilder xmlConfigBuilder = null;
     if (this.configuration != null) {
       targetConfiguration = this.configuration;
@@ -627,6 +632,7 @@ public class SqlSessionFactoryBean
 
   /**
    * {@inheritDoc}
+   * 在继承关系图中，我们发现了 InitializingBean、FactoryBean 的身影，可能清楚这个的同学，大概已经猜到了肯定有 afterPropertiesSet() 来创建 SqlSessionFactory 对象 和 getObject() 来获取 SqlSessionFactory 对象
    */
   @Override
   public SqlSessionFactory getObject() throws Exception {

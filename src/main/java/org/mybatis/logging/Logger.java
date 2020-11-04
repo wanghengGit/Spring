@@ -23,6 +23,8 @@ import java.util.function.Supplier;
  * Wrapper of {@link Log}, allow log with lambda expressions.
  *
  * @author Putthiphong Boonphong
+ * @author kit
+ * @date 20200819
  */
 public class Logger {
 

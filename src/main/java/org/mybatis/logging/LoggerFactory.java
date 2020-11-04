@@ -21,6 +21,8 @@ import org.apache.ibatis.logging.LogFactory;
  * LoggerFactory is a wrapper around {@link LogFactory} to support {@link Logger}.
  *
  * @author Putthiphong Boonphong
+ * @author kit
+ * @date 20200819
  */
 public class LoggerFactory {
 

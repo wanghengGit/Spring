@@ -87,6 +87,7 @@ import org.springframework.util.StringUtils;
  *
  * @see MapperFactoryBean
  * @see ClassPathMapperScanner
+ * @author kit
  * @date 20200410
  * 扫描Mapper接口路径，将 Mapper 偷梁换柱成 MapperFactoryBean
  */

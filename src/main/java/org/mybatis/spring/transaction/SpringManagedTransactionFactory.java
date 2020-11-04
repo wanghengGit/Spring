@@ -28,6 +28,8 @@ import org.apache.ibatis.transaction.TransactionFactory;
  * Creates a {@code SpringManagedTransaction}.
  *
  * @author Hunter Presnall
+ * @author kit
+ * @date 20200819
  */
 public class SpringManagedTransactionFactory implements TransactionFactory {
 

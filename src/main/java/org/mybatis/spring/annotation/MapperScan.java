@@ -71,6 +71,15 @@ import org.springframework.context.annotation.Import;
  * @since 1.2.0
  * @see MapperScannerRegistrar
  * @see MapperFactoryBean
+ * @author kit
+ * @date 20200819
+ *  这个注解的重点是@Import(MapperScannerRegistrar.class)，使用这个注解导入MapperScannerRegistrar主要完成两件事：
+ *
+ *                   1. 扫描指定接口
+ *
+ *                   2. 注册这些接口的bean定义到spring容器
+ *
+ *         接下来进入MapperScannerRegistrar类看下是如何完成这两动作：
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

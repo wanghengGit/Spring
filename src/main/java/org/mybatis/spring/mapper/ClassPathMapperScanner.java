@@ -48,6 +48,16 @@ import java.util.Set;
  * 
  * @see MapperFactoryBean
  * @since 1.2.0
+ * @author kit
+ * @date 20200804
+ * ClassPathMapperScanner这个扫描器的主要的作用有以下几个：
+ *
+ * 第一扫描basePackage包下面所有的class类
+ * 第二将所有的class类封装成为spring的ScannedGenericBeanDefinition sbd对象
+ * 第三过滤sbd对象，只接受接口类，从下面的代码中可以看出。
+ * 第四完成sbd对象属性的设置，比如设置sqlSessionFactory、BeanClass等，这个sqlSessionFactory是本文接下来要解析的SqlSessionFactoryBean
+ * 第五将过滤出来的sbd对象通过这个BeanDefinitionRegistry registry注册器注册到DefaultListableBeanFactory中，
+ * 这个registry就是方法postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)中的参数
  */
 public class ClassPathMapperScanner extends ClassPathBeanDefinitionScanner {
 

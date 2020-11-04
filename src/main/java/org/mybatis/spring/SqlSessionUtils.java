@@ -38,6 +38,8 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  *
  * @author Hunter Presnall
  * @author Eduardo Macarron
+ * @author kit
+ * @date 20200819
  */
 public final class SqlSessionUtils {
 

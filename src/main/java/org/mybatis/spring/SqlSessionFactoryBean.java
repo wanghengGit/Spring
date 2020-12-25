@@ -485,6 +485,9 @@ public class SqlSessionFactoryBean
   /**
    * {@inheritDoc}
    * 注入成功之后回调方法
+   * afterPropertiesSet() 内部首先 验证了 dataSource 和 sqlSessionFactoryBuilder 部位null，
+   * 最后调用 buildSqlSessionFactory()方法获取到 SqlSessionFactory 对象，
+   * 并赋值到类字段属性 sqlSessionFactory
    */
   @Override
   public void afterPropertiesSet() throws Exception {

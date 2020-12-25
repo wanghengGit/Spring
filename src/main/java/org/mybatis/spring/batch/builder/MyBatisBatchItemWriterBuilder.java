@@ -28,6 +28,8 @@ import java.util.Optional;
  * @author Kazuki Shimizu
  * @since 2.0.0
  * @see MyBatisBatchItemWriter
+ * @author kit
+ * @date 20201224
  */
 public class MyBatisBatchItemWriterBuilder<T> {
 

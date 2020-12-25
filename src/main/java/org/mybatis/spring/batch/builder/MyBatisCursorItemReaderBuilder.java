@@ -27,6 +27,8 @@ import java.util.Optional;
  * @author Kazuki Shimizu
  * @since 2.0.0
  * @see MyBatisCursorItemReader
+ * @author kit
+ * @date 20201224
  */
 public class MyBatisCursorItemReaderBuilder<T> {
 

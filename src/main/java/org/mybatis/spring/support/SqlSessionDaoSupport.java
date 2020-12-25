@@ -36,6 +36,7 @@ import org.springframework.dao.support.DaoSupport;
  * @see #setSqlSessionTemplate
  * @see SqlSessionTemplate
  * @date 20200804
+ * @author kit
  */
 public abstract class SqlSessionDaoSupport extends DaoSupport {
 

@@ -34,6 +34,8 @@ import java.lang.annotation.Target;
  * @author Kazuki Shimizu
  * @since 2.0.0
  * @see MapperScan
+ * @author kit
+ * @date 20201224
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

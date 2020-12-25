@@ -27,6 +27,8 @@ import java.util.Optional;
  * @author Kazuki Shimizu
  * @since 2.0.0
  * @see MyBatisPagingItemReader
+ * @author kit
+ * @date 20201224
  */
 public class MyBatisPagingItemReaderBuilder<T> {
 

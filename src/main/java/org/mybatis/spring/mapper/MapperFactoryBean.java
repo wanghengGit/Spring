@@ -91,6 +91,7 @@ public class MapperFactoryBean<T> extends SqlSessionDaoSupport implements Factor
 
   /**
    * {@inheritDoc}
+   * 可以看到 MapperFactoryBean 实现了 FactoryBean， 那么 肯定通过 实现 getObject() 获取到 Mapper的代理对象
    */
   @Override
   public T getObject() throws Exception {

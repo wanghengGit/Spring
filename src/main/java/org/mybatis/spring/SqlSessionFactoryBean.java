@@ -509,6 +509,8 @@ public class SqlSessionFactoryBean
    * @return SqlSessionFactory
    * @throws Exception
    *           if configuration is failed
+   * afterPropertiesSet() 内部首先 验证了 dataSource 和 sqlSessionFactoryBuilder 部位null
+   * ，最后调用 buildSqlSessionFactory()方法获取到 SqlSessionFactory 对象，并赋值到类字段属性 sqlSessionFactory
    */
   protected SqlSessionFactory buildSqlSessionFactory() throws Exception {
     // 省略了 SqlSessionFactoryBean 的属性（比如：ObjectFactory ）赋值到 Configuration 对象中的操作
@@ -593,6 +595,7 @@ public class SqlSessionFactoryBean
 
     if (xmlConfigBuilder != null) {
       try {
+        //  3  XmlConfigBuilder 解析方法执行
         xmlConfigBuilder.parse();
         LOGGER.debug(() -> "Parsed configuration file: '" + this.configLocation + "'");
       } catch (Exception ex) {
@@ -615,6 +618,7 @@ public class SqlSessionFactoryBean
             continue;
           }
           try {
+            //  4 创建  XMLMapperBuilder 对象 : 用于解析 mapper.xml 数据
             XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(),
                 targetConfiguration, mapperLocation.toString(), targetConfiguration.getSqlFragments());
             xmlMapperBuilder.parse();
@@ -629,7 +633,7 @@ public class SqlSessionFactoryBean
     } else {
       LOGGER.debug(() -> "Property 'mapperLocations' was not specified.");
     }
-
+    // 5 通过 SqlSessionFactoryBuilder bulid  SqlSessionFactory 对象
     return this.sqlSessionFactoryBuilder.build(targetConfiguration);
   }
 
